@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: 'herokuappadddress',
+  baseUrl: 'https://up-vote.herokuapp.com',
 };
