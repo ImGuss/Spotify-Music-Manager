@@ -1,4 +1,8 @@
-a:hover,
-li:hover {
+a:hover {
   color: #3fb618;
+}
+
+.pin {
+  color: black;
+  text-align: center;
 }

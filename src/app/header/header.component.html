@@ -31,6 +31,8 @@
         <li *ngIf="spotifyId" class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ spotifyId }} <span class="caret"></span></a>
           <ul class="dropdown-menu">
+            <li class="pin">Pin # {{ pinNumber }}</li>
+            <li class="dropdown-divider"></li>
             <li><a (click)="logout()">Logout</a></li>
           </ul>
         </li>

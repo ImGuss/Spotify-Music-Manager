@@ -33,4 +33,19 @@ export class PlaylistService {
     )
     .map( res => res.json() );
   }
+
+  // get user's playlist pin number
+  getPinNumber() {
+    const baseUrl = `${this.baseUrl}/${this._spotifyService.spotifyId}/getpin`;
+
+    return this._http.get(
+      baseUrl,
+      { withCredentials: true }
+    )
+    .map( res => res.json() );
+  }
+
+  searchPinNumber() {
+    const baseUrl = `${this.baseUrl}`
+  }
 }

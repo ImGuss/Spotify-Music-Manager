@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 // services
 import { SpotifyService } from '../services/spotify.service';
+import { PlaylistService } from '../services/playlist.service';
 
 
 @Component({
@@ -15,8 +16,11 @@ export class HeaderComponent implements OnInit {
   public spotifyId: string;
   public baseUrl: string = 'http://localhost:3000';
 
+  public pinNumber: number;
+
   constructor(
-    private _spotifyService: SpotifyService
+    private _spotifyService: SpotifyService,
+    private _playlistService: PlaylistService
   ) { }
 
   ngOnInit() {
@@ -33,6 +37,19 @@ export class HeaderComponent implements OnInit {
     .catch( (err) => {
       console.log(err);
     });
+
+    this.getPinNumber();
+  }
+
+  getPinNumber() {
+    this._playlistService.getPinNumber()
+    .subscribe( (playlist) => {
+      this.pinNumber = playlist['pin'];
+    });
+  }
+
+  searchPinNumbers() {
+    
   }
 
   logout() {
