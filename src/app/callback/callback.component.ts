@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { environment } from '../../environments/environment';
+
 // services
 import { SpotifyService } from '../services/spotify.service';
 
@@ -10,7 +12,7 @@ import { SpotifyService } from '../services/spotify.service';
 })
 export class CallbackComponent implements OnInit {
 
-  public baseUrl: string = 'http://localhost:3000'
+  public baseUrl: string = environment.baseUrl;
 
   errorMessage: string;
 

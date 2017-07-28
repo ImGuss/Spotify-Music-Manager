@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
+import { environment } from '../../environments/environment';
+
 //services
 import { SpotifyService } from './spotify.service';
 
@@ -9,7 +11,7 @@ import { SpotifyService } from './spotify.service';
 export class PlaylistService {
 
   private accessToken: string;
-  public baseUrl: string = 'http://localhost:3000'
+  public baseUrl: string = environment.baseUrl;
 
   constructor(
     private _http: Http,

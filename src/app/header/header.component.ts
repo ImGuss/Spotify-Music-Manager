@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { environment } from '../../environments/environment';
 
 // services
 import { SpotifyService } from '../services/spotify.service';
@@ -14,7 +15,7 @@ import { PlaylistService } from '../services/playlist.service';
 export class HeaderComponent implements OnInit {
 
   public spotifyId: string;
-  public baseUrl: string = 'http://localhost:3000';
+  public baseUrl: string = environment.baseUrl;
 
   public pinNumber: number;
 
@@ -49,7 +50,7 @@ export class HeaderComponent implements OnInit {
   }
 
   searchPinNumbers() {
-    
+
   }
 
   logout() {

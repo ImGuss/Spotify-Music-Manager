@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
+import { environment } from '../../environments/environment';
+
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
@@ -15,7 +17,7 @@ export class SpotifyService {
 
   public searchResults: any;
 
-  public baseUrl: string = 'http://localhost:3000'
+  public baseUrl: string = environment.baseUrl;
 
   constructor(
     private _http: Http

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+import { environment } from '../../environments/environment';
+
 // services
 import { SpotifyService } from '../services/spotify.service';
 import { PlaylistService } from '../services/playlist.service';
@@ -12,7 +14,7 @@ import { PlaylistService } from '../services/playlist.service';
 })
 export class HomeComponent implements OnInit {
 
-  public baseUrl: string = 'http://localhost:3000';
+  public baseUrl: string = environment.baseUrl;
 
   constructor(
     private _spotifyService: SpotifyService,
