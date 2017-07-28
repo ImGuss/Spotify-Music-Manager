@@ -1,0 +1,13 @@
+<p>
+  playlist-details works!
+</p>
+<!-- <div *ngFor="let track of playlist.track.items">
+  {{ track.name }}
+</div> -->
+
+<h2>{{ playlist?.name }}</h2>
+<div *ngFor="let track of playlist?.tracks.items">
+  <div>
+    {{ track.track.name }}
+  </div>
+</div>

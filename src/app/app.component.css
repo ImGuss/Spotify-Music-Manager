@@ -1,0 +1,18 @@
+#container {
+   min-height: 100%;
+   position: relative;
+}
+
+#body {
+   padding: 10px;
+   padding-bottom: 60px;   /* Height of the footer */
+}
+
+app-footer {
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   height: 60px;   /* Height of the footer */
+   border-top: 1px solid #3fb618;
+}
