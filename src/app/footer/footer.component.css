@@ -5,3 +5,9 @@ a {
 a:hover {
   color: #3fb618;
 }
+
+footer {
+  border-top: 1px solid #3fb618;
+  margin: 50px;
+  padding: 20px;
+}

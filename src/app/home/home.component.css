@@ -1,3 +1,7 @@
+.album-background {
+  background-image: url('../../assets/images/album-background-blurred.jpg');
+}
+
 h1 {
   font-size: 150px;
   font-weight: bold;
