@@ -10,6 +10,8 @@ import { SpotifyService } from '../services/spotify.service';
 })
 export class CallbackComponent implements OnInit {
 
+  public baseUrl: string = 'http://localhost:3000'
+
   errorMessage: string;
 
   loginUrl: string;

@@ -12,6 +12,8 @@ import { PlaylistService } from '../services/playlist.service';
 })
 export class HomeComponent implements OnInit {
 
+  public baseUrl: string = 'http://localhost:3000';
+
   constructor(
     private _spotifyService: SpotifyService,
     private _playlistService: PlaylistService,

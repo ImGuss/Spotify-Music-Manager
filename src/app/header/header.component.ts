@@ -13,6 +13,7 @@ import { SpotifyService } from '../services/spotify.service';
 export class HeaderComponent implements OnInit {
 
   public spotifyId: string;
+  public baseUrl: string = 'http://localhost:3000';
 
   constructor(
     private _spotifyService: SpotifyService
