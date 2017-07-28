@@ -9,6 +9,7 @@ import { SpotifyService } from './spotify.service';
 export class PlaylistService {
 
   private accessToken: string;
+  public baseUrl: string = 'http://localhost:3000'
 
   constructor(
     private _http: Http,
@@ -20,7 +21,7 @@ export class PlaylistService {
 
     this.accessToken = this._spotifyService.getAccessToken();
 
-    const baseUrl = `http://localhost:3000/playlist/create/${this._spotifyService.spotifyId}`;
+    const baseUrl = `${this.baseUrl}/playlist/create/${this._spotifyService.spotifyId}`;
     return this._http.post(
       baseUrl,
       {

@@ -15,6 +15,8 @@ export class SpotifyService {
 
   public searchResults: any;
 
+  public baseUrl: string = 'http://localhost:3000'
+
   constructor(
     private _http: Http
   ) { }
@@ -22,7 +24,7 @@ export class SpotifyService {
   // check back end to see if user is logged in
   isloggedin() {
     return this._http.get(
-      'http://localhost:3000/loggedin',
+      `${this.baseUrl}/loggedin`,
       { withCredentials: true }
     )
     .toPromise()
@@ -37,7 +39,7 @@ export class SpotifyService {
 
   logout() {
     return this._http.get(
-      'http://localhost:3000/logout',
+      `${this.baseUrl}/logout`,
       { withCredentials: true }
     )
     .toPromise()
@@ -56,7 +58,7 @@ export class SpotifyService {
   createPlaylist(listName: string, listDesc: string) {
     console.log(this.spotifyId);
 
-    const baseUrl = `http://localhost:3000/spotify/${this.spotifyId}/playlists/create`;
+    const baseUrl = `${this.baseUrl}/spotify/${this.spotifyId}/playlists/create`;
 
     return this._http.post(
       baseUrl,
@@ -73,7 +75,7 @@ export class SpotifyService {
 
   listPlaylists() {
 
-    const baseUrl = `http://localhost:3000/spotify/${this.spotifyId}/playlists/`;
+    const baseUrl = `${this.baseUrl}/spotify/${this.spotifyId}/playlists/`;
 
     return this._http.post(
       baseUrl,
@@ -87,7 +89,7 @@ export class SpotifyService {
 
   getSinglePlaylist(playlistId: string) {
 
-    const baseUrl = `http://localhost:3000/spotify/${this.spotifyId}/playlists/`;
+    const baseUrl = `${this.baseUrl}/spotify/${this.spotifyId}/playlists/`;
 
     return this._http.post(
       baseUrl + playlistId,
@@ -100,7 +102,7 @@ export class SpotifyService {
   }
 
   searchMusic(query: string, type: string) {
-    const baseUrl = `http://localhost:3000/spotify/search?`;
+    const baseUrl = `${this.baseUrl}/spotify/search?`;
 
     const params = [
       `q=${query}`,
