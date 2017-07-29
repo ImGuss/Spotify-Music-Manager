@@ -1,6 +1,26 @@
-<h2>{{ playlist?.name }}</h2>
-<div *ngFor="let track of playlist?.tracks.items">
-  <div>
-    {{ track.track.name }}
+
+<div class="row">
+  <div class="col-sm-2"></div>
+
+  <div class="col-sm-8">
+    <div class="panel panel-success clear">
+      <div class="panel-heading">
+      <h2 class="center">{{ playlist?.name }}</h2>
+      </div>
+      <div class="panel-body">
+
+        <ul class="list-group">
+          <li *ngFor="let track of playlist?.tracks.items" class="list-group-item hvr-pop">
+              <span class="badge">
+                {{ track.track.artists[0].name }}
+              </span>
+              {{ track.track.name }}
+          </li>
+        </ul> <!-- end ngFor loop -->
+
+      </div>
+    </div>
   </div>
+
+  <div class="col-sm-2"></div>
 </div>
