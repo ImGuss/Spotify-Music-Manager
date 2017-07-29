@@ -38,7 +38,7 @@ export class CreatePlaylistComponent implements OnInit {
   createPlaylist() {
     this._spotifyService.createPlaylist(this.listName, this.listDesc)
     .then( (playlist) => {
-      this._router.navigate(['/playlists/' + playlist.id]);
+      this._router.navigate(['/playlists']);
     })
     .catch( (err) => {
       console.log(err);
