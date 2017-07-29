@@ -1,13 +1,17 @@
-<h2>playlist works</h2>
-
 <div class="row">
-  <div class="col-sm-12">
-    <form #myForm="ngForm" (ngSubmit)="createPlaylist()">
-      <label>List Name</label>
-      <input name="listName" [(ngModel)]="listName"><br>
-      <label>List Description</label>
-      <input name="listDesc" [(ngModel)]="listDesc"><br>
-      <button>Submit</button>
-    </form>
+  <div class="col-sm-2"></div>
+  <div class="col-sm-8">
+    <div class="panel panel-success clear-bgd">
+      <div class="panel-body">
+        <form class="form-group has-success" #myForm="ngForm" (ngSubmit)="createPlaylist()">
+          <label for="listNameInput">Playlist Name</label>
+          <input class="form-control" id="listNameInput" name="listName" [(ngModel)]="listName" placeholder="Workout Jams, Study Sesh, etc..."><br>
+          <label for="listDescInput">Playlist Description</label>
+          <input class="form-control" id="listDescInput" name="listDesc" [(ngModel)]="listDesc" placeholder="Songs to workout to, etc..."><br>
+          <button class="btn btn-success">Submit</button>
+        </form>
+      </div>
+    </div>
   </div>
+  <div class="col-sm-2"></div>
 </div>
