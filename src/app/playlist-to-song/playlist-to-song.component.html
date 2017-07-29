@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-sm-2"></div>
+
+  <div class="col-sm-8">
+    <div class="panel panel-success clear">
+      <div class="panel-body">
+
+        <ul class="list-group">
+          <li *ngFor="let list of playlists" class="list-group-item hvr-pop">
+              <span class="badge">
+                {{ list.tracks.total }}
+              </span>
+              <a (click)="choosePlaylist(list.id)">{{ list.name }}</a>
+          </li>
+        </ul> <!-- end ngFor loop -->
+
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-2"></div>
+</div>

@@ -1,0 +1,46 @@
+.row {
+  color: black;
+}
+
+.panel {
+  border-radius: 3px;
+
+}
+
+.badge {
+  background-color: #3fb618;
+  border-radius: 0;
+}
+
+
+/* hover pop style */
+@keyframes hvr-pop {
+  50% {
+    -webkit-transform: scale(1.025);
+    transform: scale(1.025);
+  }
+}
+.hvr-pop {
+  /*display: inline-block;*/
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+}
+.hvr-pop:hover, .hvr-pop:focus, .hvr-pop:active {
+  -webkit-animation-name: hvr-pop;
+  animation-name: hvr-pop;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+
+a,
+a:hover,
+a:active {
+  color: black;
+  text-decoration: none;
+}

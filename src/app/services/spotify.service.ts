@@ -12,7 +12,7 @@ export class SpotifyService {
   public spotifyId: string;
   public code: string;
 
-  private accessToken: string;
+  public accessToken: string;
   private refreshToken: string;
 
   public searchResults: any;

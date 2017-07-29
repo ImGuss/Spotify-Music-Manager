@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { environment } from '../../environments/environment';
 
 // services
 import { SpotifyService } from '../services/spotify.service';
@@ -13,6 +16,7 @@ export class SearchResultsComponent implements OnInit {
 
   constructor(
     private _spotifyService: SpotifyService,
+    private _router: Router
   ) { }
 
   @Input() results: any;
@@ -20,8 +24,8 @@ export class SearchResultsComponent implements OnInit {
   ngOnInit() {
   }
 
-  addTrack() {
-    console.log('blah');
+  addTrack(id) {
+    this._router.navigate([`/playlists/add/${id}`]);
   }
 
 

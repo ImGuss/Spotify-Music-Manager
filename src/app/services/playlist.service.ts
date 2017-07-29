@@ -50,4 +50,20 @@ export class PlaylistService {
   searchPinNumber() {
     const baseUrl = `${this.baseUrl}`
   }
+
+  addSongToPlaylist(playlistId, trackId) {
+
+    const spotifyId = this._spotifyService.spotifyId;
+    const baseUrl = `${this.baseUrl}/spotify/playlist/${spotifyId}/add/${playlistId}`;
+
+    return this._http.post(
+      baseUrl,
+      {
+        track: trackId,
+        accessToken: this._spotifyService.accessToken
+      },
+      { withCredentials: true }
+    )
+    .map( res => res.json() );
+  }
 }
