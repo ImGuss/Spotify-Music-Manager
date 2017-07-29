@@ -15,6 +15,7 @@ import { PlaylistService } from '../services/playlist.service';
 export class HomeComponent implements OnInit {
 
   public baseUrl: string = environment.baseUrl;
+  public spotifyId: string;
 
   constructor(
     private _spotifyService: SpotifyService,
@@ -31,6 +32,7 @@ export class HomeComponent implements OnInit {
 
       // call method in SpotifyService that sets the spotifyId the access token, and the refresh token
       this._spotifyService.setCreds(user.spotifyID, user.accessToken, user.refreshToken);
+      this.spotifyId = user.spotifyID
     })
     .catch( (err) => {
       console.log(err);
