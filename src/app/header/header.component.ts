@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { environment } from '../../environments/environment';
 
@@ -21,7 +22,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private _spotifyService: SpotifyService,
-    private _playlistService: PlaylistService
+    private _playlistService: PlaylistService,
+    private _router: Router,
   ) { }
 
   ngOnInit() {
@@ -34,29 +36,40 @@ export class HeaderComponent implements OnInit {
 
       // call method in SpotifyService that sets the spotifyId the access token, and the refresh token
       this._spotifyService.setCreds(user.spotifyID, user.accessToken, user.refreshToken);
+
+      this.getPinNumber();
     })
     .catch( (err) => {
       console.log(err);
     });
-
-    this.getPinNumber();
   }
 
   getPinNumber() {
-    this._playlistService.getPinNumber()
+    this._playlistService.getPinNumber(this.spotifyId)
     .subscribe( (playlist) => {
       this.pinNumber = playlist['pin'];
     });
-  }
-
-  searchPinNumbers() {
-
   }
 
   logout() {
     this._spotifyService.logout();
     this._spotifyService.removeCreds();
     window.location.reload();
+  }
+
+  getPlaylistOwnerByPinNumber(pinNumber) {
+    this._playlistService.getPlaylistOwnerByPinNumber(pinNumber)
+    .subscribe( (playlist) => {
+      console.log(playlist);
+      this._router.navigate(['/search/public']);
+    });
+  }
+
+  generatePlaylist() {
+    this._playlistService.generatePlaylist()
+    .subscribe( (playlist) => {
+      this.pinNumber = playlist['pin'];
+    });
   }
 
 }

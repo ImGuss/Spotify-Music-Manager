@@ -19,7 +19,7 @@ export class PlaylistService {
   ) { }
 
   // creates a playlist on backend as well as spotify
-  generatePlaylist(listName: string, listDesc: string) {
+  generatePlaylist() {
 
     this.accessToken = this._spotifyService.getAccessToken();
 
@@ -27,8 +27,6 @@ export class PlaylistService {
     return this._http.post(
       baseUrl,
       {
-        listName: listName,
-        listDesc: listDesc,
         accessToken: this.accessToken
       },
       { withCredentials: true }
@@ -37,18 +35,14 @@ export class PlaylistService {
   }
 
   // get user's playlist pin number
-  getPinNumber() {
-    const baseUrl = `${this.baseUrl}/${this._spotifyService.spotifyId}/getpin`;
+  getPinNumber(spotifyId) {
+    const baseUrl = `${this.baseUrl}/${spotifyId}/getpin`;
 
     return this._http.get(
       baseUrl,
       { withCredentials: true }
     )
     .map( res => res.json() );
-  }
-
-  searchPinNumber() {
-    const baseUrl = `${this.baseUrl}`
   }
 
   addSongToPlaylist(playlistId, trackId) {
@@ -66,4 +60,19 @@ export class PlaylistService {
     )
     .map( res => res.json() );
   }
+
+  getPlaylistOwnerByPinNumber(pinNumber) {
+
+    const baseUrl = `${this.baseUrl}/search/playlists/public`
+
+    return this._http.post(
+      baseUrl,
+      {
+        pin: pinNumber
+      },
+      { withCredentials: true }
+    )
+    .map( res => res.json() );
+  }
+
 }
