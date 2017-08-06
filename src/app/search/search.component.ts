@@ -23,8 +23,6 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
     this._spotifyService.isloggedin()
     .then( (user) => {
-      // log the user
-      console.log('USER', user);
 
       // call method in SpotifyService that sets the spotifyId the access token, and the refresh token
       this._spotifyService.setCreds(user.spotifyID, user.accessToken, user.refreshToken);
@@ -38,7 +36,7 @@ export class SearchComponent implements OnInit {
     this._spotifyService.searchMusic(this.query, this.type)
     .subscribe( (results) => {
       this.results = results;
-      console.log(this.results);
     });
   }
+
 }
