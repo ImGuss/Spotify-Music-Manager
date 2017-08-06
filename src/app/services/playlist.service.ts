@@ -13,6 +13,10 @@ export class PlaylistService {
   private accessToken: string;
   public baseUrl: string = environment.baseUrl;
 
+  private publicPlaylist: any;
+  private publicAccessToken: string;
+  private publicSpotifyId: string;
+
   constructor(
     private _http: Http,
     private _spotifyService: SpotifyService
@@ -69,6 +73,31 @@ export class PlaylistService {
       baseUrl,
       {
         pin: pinNumber
+      },
+      { withCredentials: true }
+    )
+    .map( (res) => {
+      const data = res.json();
+      this.publicAccessToken = data['ownerId']['accessToken'];
+      this.publicSpotifyId = data['ownerId']['spotifyID'];
+      return res.json();
+    });
+  }
+
+  searchMusicPublic(query: string, type: string) {
+    const baseUrl = `${this.baseUrl}/spotify/search?`;
+
+    const params = [
+      `q=${query}`,
+      `type=${type}`
+    ].join('&');
+
+    const finalUrl = baseUrl + params;
+
+    return this._http.post(
+      finalUrl,
+      {
+        accessToken: this.publicAccessToken
       },
       { withCredentials: true }
     )

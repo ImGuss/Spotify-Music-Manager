@@ -1,0 +1,40 @@
+<div class="row">
+  <div *ngIf="results?.tracks">
+    <div class="col-sm-3 col-xs-12" *ngFor="let track of results?.tracks.items">
+      <div class="panel panel-default clear">
+        <div class="panel-body">
+
+          <a (click)="addTrack(track.id)"><div class="image-container">
+            <img src="{{ track.album.images[1].url }}" alt="Avatar" class="artwork" style="width:100%">
+            <div class="image-middle">
+              <div class="image-text">Add to Playlist</div>
+            </div>
+          </div></a>
+
+
+          <div class="track-name">
+            <a href="#">{{ track.name }}</a>
+          </div>
+          <div class="track-artist">
+            <a href="#"><strong>{{ track.artists[0].name }}</strong></a>
+          </div>
+        </div> <!-- end panel body -->
+      </div> <!-- end panel -->
+    </div> <!-- end column -->
+  </div>
+
+  <div *ngIf="results?.artists">
+    artists
+  </div>
+
+  <div *ngIf="results?.albums">
+    albums
+  </div>
+
+
+  <!-- <div *ngIf="results?tracks.items.length === 0">
+    <div class="center">
+      No results were found.
+    </div>
+  </div>
+</div> -->

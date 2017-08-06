@@ -60,7 +60,6 @@ export class HeaderComponent implements OnInit {
   getPlaylistOwnerByPinNumber(pinNumber) {
     this._playlistService.getPlaylistOwnerByPinNumber(pinNumber)
     .subscribe( (playlist) => {
-      console.log(playlist);
       this._router.navigate(['/search/public']);
     });
   }
