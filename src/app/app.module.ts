@@ -21,6 +21,7 @@ import { ListPlaylistsComponent } from './list-playlists/list-playlists.componen
 import { PlaylistDetailsComponent } from './playlist-details/playlist-details.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { PlaylistToSongComponent } from './playlist-to-song/playlist-to-song.component';
+import { PublicSearchComponent } from './public-search/public-search.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { PlaylistToSongComponent } from './playlist-to-song/playlist-to-song.com
     PlaylistDetailsComponent,
     SearchResultsComponent,
     PlaylistToSongComponent,
+    PublicSearchComponent,
   ],
   imports: [
     BrowserModule,
