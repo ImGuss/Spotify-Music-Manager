@@ -45,14 +45,5 @@ export class HomeComponent implements OnInit {
     window.location.reload();
   }
 
-  generatePlaylist() {
-    const listName: string = 'UpVote Playlist';
-    const listDesc: string = 'Users can UpVote or DownVote';
-    this._playlistService.generatePlaylist(listName, listDesc)
-    .subscribe( (playlist) => {
-      console.log('\n','PLAYLIST~~~~~~',playlist);
-    });
-  }
-
 
 }
