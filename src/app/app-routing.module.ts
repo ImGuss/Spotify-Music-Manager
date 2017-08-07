@@ -23,9 +23,9 @@ const routes: Routes = [
 
   { path: 'search/public', component: PublicSearchComponent },
 
-  { path: 'playlists/:id', component: PlaylistDetailsComponent },
-
   { path: 'playlists/create', component: CreatePlaylistComponent },
+
+  { path: 'playlists/:id', component: PlaylistDetailsComponent },
 
   { path: 'playlists/add/:id', component: PlaylistToSongComponent },
 ];
