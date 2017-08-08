@@ -5,20 +5,22 @@
 
         <div class="row">
           <div class="col-sm-10">
-            <div class="form-group has-success">
-              <label class="" for=""></label>
-              <input class="form-control" type="text" name="query" [(ngModel)]="query" placeholder="SearchMusic..." (keyup)="searchMusicPublic()">
+            <div class="form-group">
+              <label class="" for="publicQueryInput"></label>
+              <input id="publicQueryInput" class="form-control" type="text" name="query" [(ngModel)]="query" placeholder="SearchMusic..." (keyup)="searchMusicPublic()">
             </div>
           </div>
           <div class="col-sm-2">
-            <div class="form-group has-success">
-              <label class="" for=""></label>
-              <select [(ngModel)]="type" type="text" class="form-control" name="type">
-                <option value="all" selected>All</option>
-                <option value="track">Song</option>
-                <option value="artist">Artist</option>
-                <option value="album">Album</option>
-              </select>
+            <div class="form-group">
+              <label class="" for="publicTypeInput"></label>
+              <div class="select">
+                <select id="publicTypeInput" [(ngModel)]="type" type="text" class="form-control" name="type">
+                  <option value="all" selected>All</option>
+                  <option value="track">Song</option>
+                  <option value="artist">Artist</option>
+                  <option value="album">Album</option>
+                </select>
+              </div>
             </div>
           </div>
         </div>

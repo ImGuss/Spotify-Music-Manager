@@ -1,5 +1,10 @@
 input {
-  color: black;
+  color: white;
+  background-color: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #3fb618;
 }
 
 .panel {
