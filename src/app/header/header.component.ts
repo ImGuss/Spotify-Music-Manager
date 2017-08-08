@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
   public baseUrl: string = environment.baseUrl;
 
   public pinNumber: number;
+  public pinNumberInput: number;
 
   constructor(
     private _spotifyService: SpotifyService,
