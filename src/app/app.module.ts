@@ -23,6 +23,7 @@ import { SearchResultsComponent } from './search-results/search-results.componen
 import { PlaylistToSongComponent } from './playlist-to-song/playlist-to-song.component';
 import { PublicSearchComponent } from './public-search/public-search.component';
 import { PublicSearchResultsComponent } from './public-search-results/public-search-results.component';
+import { NewPinComponent } from './new-pin/new-pin.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { PublicSearchResultsComponent } from './public-search-results/public-sea
     PlaylistToSongComponent,
     PublicSearchComponent,
     PublicSearchResultsComponent,
+    NewPinComponent,
   ],
   imports: [
     BrowserModule,
