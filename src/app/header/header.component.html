@@ -32,6 +32,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ spotifyId }} <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li *ngIf="pinNumber" class="pin">Pin # {{ pinNumber }}</li>
+            <li><a [routerLink]="['/pin/new']">Pin not working?</a></li>
             <li *ngIf="!pinNumber" (click)="generatePlaylist()" class="pin">Generate Pin #</li>
             <li class="dropdown-divider"></li>
             <li><a (click)="logout()">Logout</a></li>
