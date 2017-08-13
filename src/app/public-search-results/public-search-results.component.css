@@ -59,11 +59,15 @@ a:active {
 .image-container:hover .artwork {
   border-radius: 50%;
   opacity: 0.5;
+  cursor: hand;
+  cursor: pointer;
 }
 
 .image-container:hover .image-middle {
   border-radius: 50%;
   opacity: 1;
+  cursor: hand;
+  cursor: pointer;
 }
 
 .image-text {
