@@ -1,9 +1,9 @@
 <div class="row">
-  <div class="col-sm-1"></div>
-  <div class="col-sm-10">
-    <div class="panel clear-bgd">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-8">
+    <div class="panel panel-success clear-bgd">
       <div class="panel-body">
-        <form class="form-group" #myForm="ngForm" (ngSubmit)="createPlaylist()">
+        <form class="form-group has-success" #myForm="ngForm" (ngSubmit)="createPlaylist()">
           <label for="listNameInput">Playlist Name</label>
           <input class="form-control" id="listNameInput" name="listName" [(ngModel)]="listName" placeholder="Workout Jams, Study Sesh, etc..."><br>
           <label for="listDescInput">Playlist Description</label>
@@ -13,5 +13,5 @@
       </div>
     </div>
   </div>
-  <div class="col-sm-1"></div>
+  <div class="col-sm-2"></div>
 </div>
