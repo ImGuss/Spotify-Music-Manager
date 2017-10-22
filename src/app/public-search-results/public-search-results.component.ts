@@ -35,4 +35,9 @@ export class PublicSearchResultsComponent implements OnInit {
     });
   }
 
+
+  addTrack(id) {
+    this._router.navigate([`/public/playlists/add/${id}`])
+  };
+
 }
