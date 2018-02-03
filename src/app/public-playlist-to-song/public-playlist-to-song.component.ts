@@ -27,7 +27,16 @@ export class PublicPlaylistToSongComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // need to copy PlaylistToSongComponent ngoninit but need to make sure it only list the one public playlist    
+    // need to copy PlaylistToSongComponent ngoninit but need to make sure it only list the one public playlist
+  }
+
+
+  addSongtoPublicPlaylist() {
+    // need to find playlist ID and add song ID from query string to playlist service addSongToPlaylist method then this._router.navigate to the list of songs to be able to vote
+  }
+
+  goBackToSearch() {
+    // need to navigate back to search with the party owner's spotify creds
   }
 
 }
