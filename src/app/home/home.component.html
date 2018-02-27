@@ -4,42 +4,74 @@
     <div class="panel panel-success album-background">
       <div class="panel-body black-text grey-background">
         <div class="row">
-          <div class="col-sm-7">
+          <div class="col-xs-12 col-lg-7 center">
             <h1><span class="green-text">Up</span>Vote</h1>
             <h2>Put the Playlist</h2>
               <h2>in <span class="green-text">Your</span> Hands</h2>
           </div>
-          <div class="col-sm-5">
-            <div class="panel panel-success panel-margin">
+          <div class="col-xs-12 col-lg-5 center">
+            <div class="panel panel-success panel-margin hide-list">
               <div class="panel-body">
-                <ul class="no-list">
-                  <li>
+                <div class="no-list">
+                  <div>
                     <h3 class="green-text">The social way to DJ</h3>
-                  </li>
-                  <li>
+                  </div>
+                  <div class="no-list-div">
                     <i class="fa fa-check green-text" aria-hidden="true"></i>
                     Add songs to playlists
-                  </li>
-                  <li>
+                  </div>
+                  <div class="no-list-div">
                     <i class="fa fa-check green-text" aria-hidden="true"></i>
                     UpVote or DownVote songs
-                  </li>
-                  <li>
+                  </div>
+                  <div class="no-list-div">
                     <i class="fa fa-check green-text" aria-hidden="true"></i>
                     The more UpVotes, the sooner it gets played!
-                  </li>
-                  <li *ngIf="!spotifyId">
+                  </div>
+                  <div *ngIf="!spotifyId">
                     <h4><a href="{{ baseUrl }}/auth/spotify"><i class="fa fa-spotify" aria-hidden="true"></i>
                       Sign in With Spotify</a></h4>
-                  </li>
-                </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </div> <!-- end col-sm-10 -->
 
   <div class="col-sm-1"></div>
+</div>
+
+
+<!-- show this if window is less than 767 px -->
+<div class="row show-list">
+  <div class="col-sm-12">
+    <div class="panel panel-success">
+      <div class="panel-body black-text">
+        <div class="no-list center">
+          <div>
+            <h3 class="green-text">The social way to DJ</h3>
+          </div>
+          <div>
+            <i class="fa fa-check green-text" aria-hidden="true"></i>
+            Add songs to playlists
+          </div>
+          <div>
+            <i class="fa fa-check green-text" aria-hidden="true"></i>
+            UpVote or DownVote songs
+          </div>
+          <div>
+            <i class="fa fa-check green-text" aria-hidden="true"></i>
+            The more UpVotes, the sooner it gets played!
+          </div>
+          <div *ngIf="!spotifyId">
+            <h4><a href="{{ baseUrl }}/auth/spotify"><i class="fa fa-spotify" aria-hidden="true"></i>
+              Sign in With Spotify</a></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
