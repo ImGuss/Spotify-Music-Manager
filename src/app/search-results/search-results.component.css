@@ -75,3 +75,16 @@ a:active {
   font-size: 16px;
   padding: 16px 32px;
 }
+
+#track-album-artwork {
+  width: 100%;
+}
+
+
+
+/* @media (max-width: 767px)
+{
+  #track-album-artwork {
+    height: 80%;
+  }
+} */
