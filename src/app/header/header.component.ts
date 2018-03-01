@@ -21,6 +21,9 @@ export class HeaderComponent implements OnInit {
   public pinNumber: number;
   public pinNumberInput: number;
 
+  private accessToken: string;
+  private refreshToken: string;
+
   constructor(
     private _spotifyService: SpotifyService,
     private _playlistService: PlaylistService,
@@ -34,6 +37,8 @@ export class HeaderComponent implements OnInit {
       console.log('USER', user);
       this.spotifyId = user.spotifyID;
       console.log(this.spotifyId)
+      this.accessToken = user.accessToken;
+      this.refreshToken = user.refreshToken;
 
       // call method in SpotifyService that sets the spotifyId the access token, and the refresh token
       this._spotifyService.setCreds(user.spotifyID, user.accessToken, user.refreshToken);
@@ -43,6 +48,8 @@ export class HeaderComponent implements OnInit {
     .catch( (err) => {
       console.log(err);
     });
+
+    this._playlistService.setPublicCreds(this.spotifyId, this.accessToken);
   }
 
   getPinNumber() {

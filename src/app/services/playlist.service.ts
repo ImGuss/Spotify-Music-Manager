@@ -104,4 +104,25 @@ export class PlaylistService {
     .map( res => res.json() );
   }
 
+  setPublicCreds(spotifyId, accessToken) {
+
+    const baseUrl = `${this.baseUrl}/playlist/credentials/set`;
+
+    console.log(baseUrl);
+
+    console.log('spotifyId', spotifyId);
+    console.log('accessToken', accessToken);
+
+    return this._http.post(
+      baseUrl,
+      {
+        spotifyId: spotifyId,
+        accessToken: accessToken,
+        refreshToken: null
+      },
+      { withCredentials: true }
+    )
+    .map( res => res.json() );
+  }
+
 }
