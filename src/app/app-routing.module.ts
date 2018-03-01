@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 // components
 import { HomeComponent } from './home/home.component';
+import { NewPinComponent } from './new-pin/new-pin.component';
 import { SearchComponent } from './search/search.component';
 import { CallbackComponent } from './callback/callback.component';
 import { PublicSearchComponent } from './public-search/public-search.component';
@@ -15,6 +16,8 @@ import { PublicPlaylistToSongComponent } from './public-playlist-to-song/public-
 const routes: Routes = [
 
   { path: '', component: HomeComponent },
+
+  { path: 'pin/new', component: NewPinComponent },
 
   { path: 'search', component: SearchComponent },
 
