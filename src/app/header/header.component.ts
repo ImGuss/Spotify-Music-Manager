@@ -43,13 +43,14 @@ export class HeaderComponent implements OnInit {
       // call method in SpotifyService that sets the spotifyId the access token, and the refresh token
       this._spotifyService.setCreds(user.spotifyID, user.accessToken, user.refreshToken);
 
+      this._playlistService.setPublicCreds(this.spotifyId, this.accessToken);
+
       this.getPinNumber();
     })
     .catch( (err) => {
       console.log(err);
     });
 
-    this._playlistService.setPublicCreds(this.spotifyId, this.accessToken);
   }
 
   getPinNumber() {

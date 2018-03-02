@@ -34,6 +34,7 @@
             <li *ngIf="pinNumber" class="pin">Pin # {{ pinNumber }}</li>
             <li><a [routerLink]="['/pin/new']">New Pin? (Coming Soon)</a></li>
             <li *ngIf="!pinNumber" (click)="generatePlaylist()" class="pin">Generate Pin #</li>
+            <li><a [routerLink]="['/start-playlist']">Start Party Playlist</a></li>
             <li class="dropdown-divider"></li>
             <li><a (click)="logout()">Logout</a></li>
           </ul>
