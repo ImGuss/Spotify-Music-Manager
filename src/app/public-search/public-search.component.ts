@@ -29,6 +29,7 @@ export class PublicSearchComponent implements OnInit {
 
       // call method in SpotifyService that sets the spotifyId the access token, and the refresh token
       this._spotifyService.setCreds(user.spotifyID, user.accessToken, user.refreshToken);
+
     })
     .catch( (err) => {
       console.log(err);

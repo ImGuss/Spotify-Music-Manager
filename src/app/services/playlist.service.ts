@@ -106,19 +106,19 @@ export class PlaylistService {
 
   setPublicCreds(spotifyId, accessToken) {
 
+    console.log('IN SET PUBLIC CREDS SERVICE METHOD')
+
+    this.publicSpotifyId = spotifyId;
+    this.publicAccessToken = accessToken;
+
     const baseUrl = `${this.baseUrl}/playlist/credentials/set`;
 
-    console.log(baseUrl);
-
-    console.log('spotifyId', spotifyId);
-    console.log('accessToken', accessToken);
 
     return this._http.post(
       baseUrl,
       {
-        spotifyId: spotifyId,
-        accessToken: accessToken,
-        refreshToken: null
+        spotifyId,
+        accessToken
       },
       { withCredentials: true }
     )
