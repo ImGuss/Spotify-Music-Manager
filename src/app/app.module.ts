@@ -25,6 +25,7 @@ import { PublicSearchComponent } from './public-search/public-search.component';
 import { PublicSearchResultsComponent } from './public-search-results/public-search-results.component';
 import { NewPinComponent } from './new-pin/new-pin.component';
 import { PublicPlaylistToSongComponent } from './public-playlist-to-song/public-playlist-to-song.component';
+import { StartPlaylistComponent } from './start-playlist/start-playlist.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { PublicPlaylistToSongComponent } from './public-playlist-to-song/public-
     PublicSearchResultsComponent,
     NewPinComponent,
     PublicPlaylistToSongComponent,
+    StartPlaylistComponent,
   ],
   imports: [
     BrowserModule,
