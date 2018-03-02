@@ -8,6 +8,7 @@ import { SearchComponent } from './search/search.component';
 import { CallbackComponent } from './callback/callback.component';
 import { PublicSearchComponent } from './public-search/public-search.component';
 import { ListPlaylistsComponent } from './list-playlists/list-playlists.component';
+import { StartPlaylistComponent } from './start-playlist/start-playlist.component';
 import { CreatePlaylistComponent } from './create-playlist/create-playlist.component';
 import { PlaylistToSongComponent } from './playlist-to-song/playlist-to-song.component';
 import { PlaylistDetailsComponent } from './playlist-details/playlist-details.component';
@@ -26,6 +27,8 @@ const routes: Routes = [
   { path: 'playlists', component: ListPlaylistsComponent },
 
   { path: 'search/public', component: PublicSearchComponent },
+
+  { path: 'start-playlist', component: StartPlaylistComponent },
 
   { path: 'playlists/create', component: CreatePlaylistComponent },
 
