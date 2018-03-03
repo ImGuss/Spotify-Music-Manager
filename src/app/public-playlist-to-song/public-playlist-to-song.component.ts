@@ -13,7 +13,13 @@ import { PlaylistService } from '../services/playlist.service';
 })
 export class PublicPlaylistToSongComponent implements OnInit {
 
-  public spotifyId;
+  public spotifyId: string;
+  public accessToken: string;
+  public refreshToken: string;
+
+  private publicSpotifyId: string;
+  private publicAccessToken: string;
+  private publicPlaylistId: string;
 
   public trackId: string;
 
@@ -28,15 +34,50 @@ export class PublicPlaylistToSongComponent implements OnInit {
 
   ngOnInit() {
     // need to copy PlaylistToSongComponent ngoninit but need to make sure it only list the one public playlist
+
+    this._spotifyService.isloggedin()
+    .then( (user) => {
+      // log the user
+      console.log('USER', user);
+      this.spotifyId = user.spotifyID;
+      console.log(this.spotifyId)
+      this.accessToken = user.accessToken;
+      this.refreshToken = user.refreshToken;
+
+      // call method in SpotifyService that sets the spotifyId the access token, and the refresh token
+      this._spotifyService.setCreds(user.spotifyID, user.accessToken, user.refreshToken);
+
+      this._playlistService.getPubPlaylistFromServer()
+      .subscribe( (playlist) => {
+        console.log('playlist',playlist)
+        this.publicPlaylistId = playlist.playlistId;
+        this.publicAccessToken = playlist.accessToken;
+      });
+
+    })
+    .catch( (err) => {
+      console.log(err);
+    });
   }
 
-
+  // add song to public playlist and navigate back to search
+  // maybe will make it so that it will go straight to playlist in order to vote
   addSongtoPublicPlaylist() {
-    // need to find playlist ID and add song ID from query string to playlist service addSongToPlaylist method then this._router.navigate to the list of songs to be able to vote
+
+    console.log('inside addSongToPublicPlaylist')
+
+    this._playlistService.addSongToPlaylist(this.publicPlaylistId, this.trackId)
+    .subscribe( (playlist) => {
+      this._router.navigate(['/search/public']);
+    })
   }
 
   goBackToSearch() {
+
+    console.log('inside goBackToSearch')
+
     // need to navigate back to search with the party owner's spotify creds
+    this._router.navigate(['/search/public']);
   }
 
 }

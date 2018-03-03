@@ -11,6 +11,9 @@ import { PlaylistService } from '../services/playlist.service';
 })
 export class PublicSearchComponent implements OnInit {
 
+  private publicSpotifyId: string;
+  private publicAccessToken: string;
+
   results: any;
 
   query: string;

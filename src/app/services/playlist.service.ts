@@ -106,8 +106,6 @@ export class PlaylistService {
 
   setPublicCreds(spotifyId, accessToken) {
 
-    console.log('IN SET PUBLIC CREDS SERVICE METHOD')
-
     this.publicSpotifyId = spotifyId;
     this.publicAccessToken = accessToken;
 
@@ -125,8 +123,25 @@ export class PlaylistService {
     .map( res => res.json() );
   }
 
+  // send private credentials to start playlist component
   sendPubCreds() {
     return [this.publicSpotifyId, this.publicAccessToken];
+  }
+
+
+  // might not need this method
+  getPubPlaylistFromServer() {
+
+    const finalUrl = `${this.baseUrl}/playlist/credentials/get`
+
+    return this._http.post(
+      finalUrl,
+      {
+        spotifyId: this.publicSpotifyId
+      },
+      { withCredentials: true }
+    )
+    .map( res => res.json() );
   }
 
 }

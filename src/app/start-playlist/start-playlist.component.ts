@@ -52,8 +52,7 @@ export class StartPlaylistComponent implements OnInit {
 
 
       this.savePubCreds()
-      .then( (blah) => {
-        console.log('blah', blah);
+      .then( (playlist) => {
       })
       .catch( err => console.log(err));
     })
