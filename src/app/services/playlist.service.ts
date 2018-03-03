@@ -125,4 +125,8 @@ export class PlaylistService {
     .map( res => res.json() );
   }
 
+  sendPubCreds() {
+    return [this.publicSpotifyId, this.publicAccessToken];
+  }
+
 }

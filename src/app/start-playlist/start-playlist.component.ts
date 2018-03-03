@@ -48,11 +48,19 @@ export class StartPlaylistComponent implements OnInit {
       this._spotifyService.setCreds(user.spotifyID, user.accessToken, user.refreshToken);
 
       this.getPinNumber();
-      this.savePubCreds();
+      this.getPubCreds();
+
+
+      this.savePubCreds()
+      .then( (blah) => {
+        console.log('blah', blah);
+      })
+      .catch( err => console.log(err));
     })
     .catch( (err) => {
       console.log(err);
     });
+
 
   }
 
@@ -63,20 +71,32 @@ export class StartPlaylistComponent implements OnInit {
     });
   }
 
+  // get public playlist credentials which ironically are private, and save them to this component
+  getPubCreds() {
+    const creds = this._playlistService.sendPubCreds();
 
+    this.publicSpotifyId = creds[0];
+    this.publicAccessToken = creds[1];
+    return;
+  }
+
+  // save public playlist credentials to server
   savePubCreds() {
 
-    const baseUrl = `${this.baseUrl}/credentials/set`;
+    console.log('publicid and access token', this.publicSpotifyId, this.publicAccessToken);
 
-    this._http.post(
-      baseUrl,
+    const finalUrl = `${this.baseUrl}/playlist/credentials/set`;
+
+    return this._http.post(
+      finalUrl,
       {
-        publicSpotifyId: this.publicSpotifyId,
-        publicAccessToken: this.publicAccessToken
+        spotifyId: this.publicSpotifyId,
+        accessToken: this.publicAccessToken
       },
       { withCredentials: true }
     )
-    .map( res => res.json() );
+    .toPromise()
+    .then( res => res.json() );
   }
 
 }
