@@ -52,6 +52,11 @@ export class PublicPlaylistToSongComponent implements OnInit {
         console.log('playlist',playlist)
         this.publicPlaylistId = playlist.playlistId;
         this.publicAccessToken = playlist.accessToken;
+        this.publicSpotifyId = playlist.owner;
+      });
+
+      this._route.params.subscribe( (params) => {
+        this.trackId = params['id'];
       });
 
     })
@@ -63,18 +68,15 @@ export class PublicPlaylistToSongComponent implements OnInit {
   // add song to public playlist and navigate back to search
   // maybe will make it so that it will go straight to playlist in order to vote
   addSongtoPublicPlaylist() {
+    console.log('trackID', this.trackId);
 
-    console.log('inside addSongToPublicPlaylist')
-
-    this._playlistService.addSongToPlaylist(this.publicPlaylistId, this.trackId)
+    this._playlistService.addSongToPublicPlaylist(this.publicPlaylistId, this.trackId, this.publicSpotifyId, this.publicAccessToken)
     .subscribe( (playlist) => {
       this._router.navigate(['/search/public']);
     })
   }
 
   goBackToSearch() {
-
-    console.log('inside goBackToSearch')
 
     // need to navigate back to search with the party owner's spotify creds
     this._router.navigate(['/search/public']);

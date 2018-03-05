@@ -65,6 +65,21 @@ export class PlaylistService {
     .map( res => res.json() );
   }
 
+  addSongToPublicPlaylist(playlistId, trackId, spotifyId, accessToken) {
+
+    const baseUrl = `${this.baseUrl}/spotify/playlist/${spotifyId}/add/${playlistId}`;
+
+    return this._http.post(
+      baseUrl,
+      {
+        track: trackId,
+        accessToken: accessToken
+      },
+      { withCredentials: true }
+    )
+    .map( res => res.json() );
+  }
+
   getPlaylistOwnerByPinNumber(pinNumber) {
 
     const baseUrl = `${this.baseUrl}/search/playlists/public`
